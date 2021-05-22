@@ -10,6 +10,11 @@
 <TranslationPage>:
     GridLayout:
         cols:1
+        TextInput:
+            id: word
+        Button:
+            text: "Translate"
+            on_press: root.word_translate(root.ids.word.text)
         Label:
             id: deffinition
 <RootWidget>:
