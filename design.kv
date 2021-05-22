@@ -1,0 +1,13 @@
+<MainPage>:
+    GridLayout:
+        cols:1
+        TextInput:
+            hint_text:"Enter a word"
+            id: word
+        Button:
+            text: "Translate"
+            on_press: root.word_translate(root.ids.word.text)
+
+<RootWidget>:
+    MainPage:
+        name: "main_page"
