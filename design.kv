@@ -7,7 +7,13 @@
         Button:
             text: "Translate"
             on_press: root.word_translate(root.ids.word.text)
-
+<TranslationPage>:
+    GridLayout:
+        cols:1
+        Label:
+            id: deffinition
 <RootWidget>:
     MainPage:
         name: "main_page"
+    TranslationPage:
+        name: "tr_page"

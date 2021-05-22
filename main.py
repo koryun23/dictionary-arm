@@ -39,11 +39,12 @@ class MainPage(Screen):
                 deffinition = item.find("span", {"class":"ind"})
                 if deffinition:
                     print(deffinition_type, deffinition.text)
-            
-
+        self.manager.get_screen("tr_page").ids.deffinition.text = "Definition of word "+word
+        self.manager.current = "tr_page"
         # for i in range(len(types)):
         #     print(i+1, types[i].text)
-
+class TranslationPage(Screen):
+    pass
 
 
             
