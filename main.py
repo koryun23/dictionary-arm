@@ -22,7 +22,8 @@ class MainPage(Screen):
 
 class TranslationPage(Screen):
     def word_translate(self, word):
-
+        self.manager.get_screen("tr_page").ids.deffinition.text = "Definition of word "+word
+        self.manager.get_screen("tr_page").ids.word.text = word
 
             
             
