@@ -10,6 +10,7 @@
 <TranslationPage>:
     GridLayout:
         cols:1
+        id:main
         RelativeLayout:
             size_hint:0.2,0.2
             ImageButton:
@@ -21,10 +22,11 @@
             text: ""
         ScrollView:
             GridLayout:
-                cols:1
+                cols:3
                 size_hint_y:None
                 spacing:20,20
                 id: defs
+                height:self.minimum_height
 
             
 <RootWidget>:

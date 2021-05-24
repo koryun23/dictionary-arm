@@ -7,6 +7,7 @@ from kivy.uix.button import Button
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.relativelayout import RelativeLayout
+from kivy.uix.scrollview import ScrollView
 import scraper
 Builder.load_file("design.kv")
 class RootWidget(ScreenManager):
@@ -21,15 +22,22 @@ class MainPage(Screen):
         translation = scraper.word_translate(word)
         self.manager.get_screen("tr_page").ids.word.text = "Definition of word "+word
         self.manager.current = "tr_page"
-        #self.manager.get_screen("tr_page").ids.defs
+        scroll = ScrollView()
+        self.manager.get_screen("tr_page").ids.main.add_widget(scroll)
+        layout = GridLayout(cols=1,)
         for i in range(len(translation)):
-            label_number = Label(text=str(i+1))
-            label_def = Label(text=translation[i][1])
-            label_type = Label(text=translation[i][0])
-            self.ids.defs.add_widget(label_number)
-            self.ids.defs.add_widget(label_def)
-            self.ids.defs.add_widget(label_type)
-        #print(translation)
+            label_number = Label(text=str(i+1), size_hint=(1, None))
+            label_def = Label(text = translation[i][1], size_hint=(1, None))
+            label_def.bind(width=lambda *x:label_def.setter('text_size')(label_def,(label_def.width, None)))
+            
+
+            label_type = Label(text=translation[i][0], size_hint=(1, None))
+            layout = GridLayout(cols=3)
+            self.manager.get_screen("tr_page").ids.defs.add_widget(label_number)
+            self.manager.get_screen("tr_page").ids.defs.add_widget(label_def)
+            self.manager.get_screen("tr_page").ids.defs.add_widget(label_type)
+        # label.bind(
+        # width=lambda *x: label.setter('text_size')(label, (label.width, None)))
         
 
 class TranslationPage(Screen):
