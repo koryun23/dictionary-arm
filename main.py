@@ -26,16 +26,17 @@ class MainPage(Screen):
         self.manager.get_screen("tr_page").ids.main.add_widget(scroll)
         layout = GridLayout(cols=1,)
         for i in range(len(translation)):
-            label_number = Label(text=str(i+1), size_hint=(1, None))
-            label_def = Label(text = translation[i][1], size_hint=(1, None))
-            label_def.bind(width=lambda *x:label_def.setter('text_size')(label_def,(label_def.width, None)))
+            # label_number = Label(text=str(i+1), size_hint=(1, None))
+            label_def = Label(text = str(i+1)+"."+translation[i][1], size_hint=(1, None))
+            label_def.bind(width=lambda *x:label_def.setter('text_size')(label_def,(label_def.width, None)),
+            texture_size=lambda *x:label_def.setter('height'))
             
 
-            label_type = Label(text=translation[i][0], size_hint=(1, None))
-            layout = GridLayout(cols=3)
-            self.manager.get_screen("tr_page").ids.defs.add_widget(label_number)
+            #label_type = Label(text=translation[i][0], size_hint=(1, None))
+            #layout = GridLayout(cols=1)
+            # self.manager.get_screen("tr_page").ids.defs.add_widget(label_number)
             self.manager.get_screen("tr_page").ids.defs.add_widget(label_def)
-            self.manager.get_screen("tr_page").ids.defs.add_widget(label_type)
+            # self.manager.get_screen("tr_page").ids.defs.add_widget(label_type)
         # label.bind(
         # width=lambda *x: label.setter('text_size')(label, (label.width, None)))
         
