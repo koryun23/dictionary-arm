@@ -27,3 +27,4 @@ def word_translate(word):
             if deffinition:
                 all_results.append([deffinition_type, deffinition.text])
     return all_results
+

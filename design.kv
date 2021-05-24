@@ -10,13 +10,22 @@
 <TranslationPage>:
     GridLayout:
         cols:1
-        TextInput:
-            id: word
-        Button:
-            text: "Translate"
-            on_press: root.word_translate(root.ids.word.text)
+        RelativeLayout:
+            size_hint:0.2,0.2
+            ImageButton:
+                pos_hint: {'center_x':0.05, 'center_y':0.5}
+                on_press: root.go_back()
+                source: '271218.png'
         Label:
-            id: deffinition
+            id: word
+            text: ""
+        ScrollView:
+            GridLayout:
+                cols:1
+                size_hint_y:None
+                spacing:20,20
+                id: defs
+
             
 <RootWidget>:
     MainPage:
