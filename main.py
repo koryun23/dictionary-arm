@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivymd.app import MDApp
 from kivy.lang import Builder 
 from kivy.uix.screenmanager import Screen, ScreenManager 
 from kivy.uix.label import Label
