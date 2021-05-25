@@ -1,16 +1,19 @@
 <Page>:
+    canvas.before:
+        Color:
+            rgba:(1, 1, 1, 1)
     GridLayout:
 
         cols:1
         id: main
+
         Button:
             text: "click"
             on_press: root.show()
         ScrollView:
+
             GridLayout:
-                cols:3
-                size_hint_y:None
-                spacing:20,20
+                cols:1
                 id: defs
                 height:self.minimum_height
             

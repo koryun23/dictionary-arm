@@ -1,36 +1,40 @@
 <MainPage>:
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
     GridLayout:
         cols:1
+        
         TextInput:
             hint_text:"Enter a word"
             id: word
+            multiline:False
+            size_hint: 1, None
         Button:
             text: "Translate"
             on_press: root.word_translate(root.ids.word.text)
-<TranslationPage>:
-    GridLayout:
-        cols:1
-        id:main
-        RelativeLayout:
-            size_hint:0.2,0.2
-            ImageButton:
-                pos_hint: {'center_x':0.05, 'center_y':0.5}
-                on_press: root.go_back()
-                source: '271218.png'
-        Label:
-            id: word
-            text: ""
-        ScrollView:
-            GridLayout:
-                cols:1
-                size_hint_y:None
-                #spacing:20,20
-                id: defs
-                height:self.minimum_height
+            size_hint: 1, None
 
-            
+
+        GridLayout:
+            cols:1
+            id:main
+            Label:
+                id: entered_word
+                text: ""
+                color: 0,0,0,1
+                font_size: '30sp'
+            ScrollView:
+                GridLayout:
+                    cols:1
+                    size_hint_y:None
+
+                    id: defs
+                    height:self.minimum_height
+
 <RootWidget>:
     MainPage:
         name: "main_page"
-    TranslationPage:
-        name: "tr_page"
