@@ -17,6 +17,8 @@
             text: "Translate"
             on_press: root.word_translate(root.ids.word.text)
             size_hint: 1, None
+            background_color: (115/255, 101/255, 152/255, 1)
+            #75, 0, 130
 
 
         GridLayout:
@@ -25,8 +27,8 @@
             Label:
                 id: entered_word
                 text: ""
-                color: 0,0,0,1
-                font_size: '30sp'
+                color: (150/255, 40/255, 27/255, 1)
+                font_size: '22sp'
             ScrollView:
                 GridLayout:
                     cols:1
