@@ -11,7 +11,7 @@ def word_translate(word):
     all_results = []
     types = soup.find_all("section", {"class":"gramb"})
     if not types:
-        return ["No such word. Please check the\n spelling."]
+        return ["No such word."]
     else:
         if len(types) > 4:
             limit = 4
