@@ -5,10 +5,6 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ButtonBehavior
-
-
-
-
 import scraper
 Builder.load_file("design.kv")
 
@@ -35,7 +31,7 @@ class MainPage(Screen):
                     self.ids.defs.add_widget(label_def)
         else:
             self.ids.defs.clear_widgets()
-            self.ids.entered_word.text = "Please enter a single word."
+            self.ids.entered_word.text = "Please enter\na single word."
         
 
 

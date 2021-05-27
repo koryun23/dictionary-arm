@@ -5,7 +5,10 @@ from bs4 import BeautifulSoup
 def word_translate(word):
     word=word.lower()
     url = "https://www.lexico.com/definition/"+word
-    r = requests.get(url)
+    try:    
+        r = requests.get(url)
+    except:
+        return ["Please Check your\ninternet connection"]
     c = r.content
     soup = BeautifulSoup(c, "html.parser")
     all_results = []
@@ -23,7 +26,7 @@ def word_translate(word):
                 deffinition = item.find("span", {"class":"ind"})
                 if deffinition:
                 
-                    deff = re.sub("(.{30})", "\\1\n", deffinition.text, 0, re.DOTALL)
+                    deff = re.sub("(.{25})", "\\1\n", deffinition.text, 0, re.DOTALL)
 
                     all_results.append([deff])
     return all_results
