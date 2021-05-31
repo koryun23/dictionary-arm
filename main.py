@@ -20,15 +20,18 @@ class MainPage(Screen):
         if word!='' and ' ' not in word:
             self.ids.defs.clear_widgets()
             translation = scraper.word_translate(word)
-            if type(translation[0]) == str:
-                self.ids.entered_word.text = translation[0]
-            else:
-                self.ids.entered_word.text = word
-                print(translation)
-                for i in range(len(translation)):
-                    label_def = Label(text = str(i+1)+"."+translation[i][0], size_hint=(1, None), color=(150/255, 40/255, 27/255, 1))
+            if translation:
+                if type(translation[0]) == str:
+                    self.ids.entered_word.text = translation[0]
+                else:
+                    self.ids.entered_word.text = word
+                    print(translation)
+                    for i in range(len(translation)):
+                        label_def = Label(text = str(i+1)+"."+translation[i][0], size_hint=(1, None), color=(150/255, 40/255, 27/255, 1))
 
-                    self.ids.defs.add_widget(label_def)
+                        self.ids.defs.add_widget(label_def)
+            else:
+                self.ids.entered_word.text = "No such word."
         else:
             self.ids.defs.clear_widgets()
             self.ids.entered_word.text = "Please enter\na single word."
